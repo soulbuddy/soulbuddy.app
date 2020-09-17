@@ -13,14 +13,16 @@ class CreateSecret extends Migration
      */
     public function up()
     {
-        Schema::create('secret', function (Blueprint $table) {
+        Schema::create('secrets', function (Blueprint $table) {
             $table->bigIncrements('id');
+	    $table->text('description')->nullable();
             $table->integer('user_id')->unsigned();
             $table->string('title');
             $table->text('body');
             $table->double('overall_rating')->default(0.0);
             $table->boolean('is_rated')->default(false);
             $table->boolean('is_free')->default(false);
+	    $table->integer('price')->unsigned();
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateSecret extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('secret');
+        Schema::dropIfExists('secrets');
     }
 }

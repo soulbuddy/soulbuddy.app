@@ -15,21 +15,21 @@ class CreateUserTransaction extends Migration
     {
         Schema::create('user_transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('payment_id');
-            $table->integer('transaction_type');
-            $table->string('payment_method');
-            $table->double('amount');
-            $table->string('ccy');
-            $table->string('country_code');
-            $table->integer('status');
-            $table->unsignedInteger('to_user_id');
-            $table->string('intent');
-            $table->string('payer_id');
-            $table->string('payee_email');
-            $table->string('given_name');
-            $table->string('surname');
-            $table->string('merchant_id');
-            $table->string('payer_email');
+            $table->string('payment_id')->nullable();
+            $table->integer('transaction_type')->nullable();
+            $table->string('payment_method')->nullable();
+            $table->double('amount')->nullable();
+            $table->string('ccy')->nullable();
+            $table->string('country_code')->nullable();
+            $table->integer('status')->nullable();
+            $table->unsignedInteger('to_user_id')->nullable();
+            $table->string('intent')->nullable();
+            $table->string('payer_id')->nullable();
+            $table->string('payee_email')->nullable();
+            $table->string('given_name')->nullable();
+            $table->string('surname')->nullable();
+            $table->string('merchant_id')->nullable();
+            $table->string('payer_email')->nullable();
             $table->timestamps();
         });
     }
@@ -41,6 +41,6 @@ class CreateUserTransaction extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_transaction');
+        Schema::dropIfExists('user_transactions');
     }
 }

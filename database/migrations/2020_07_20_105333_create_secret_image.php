@@ -13,7 +13,7 @@ class CreateSecretImage extends Migration
      */
     public function up()
     {
-        Schema::create('secret_images', function (Blueprint $table) {
+        Schema::create('secret_image', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('secret_id')->unsigned();
             $table->string('secret_image_path');
